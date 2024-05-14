@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <main class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="text-center display-3 py-5">Tasks</h1>
+                <ul class="list-group">
+                {% for task in tasks %}
+                    <a href="{% url 'task_detail' task.id %}" class="list-group-item">
+                        {% if task.is_important %}
+                            <h4 class="fw-bold text-primary">{{task.title}}</h4>
+                        {% else %}
+                            <h4 class="fw-bold">{{task.title}}</h4>
+                        {% endif %}
+
+                        <p>{{task.description}}</p>
+
+                        <p>{{task.date_completed|date:'M j Y'}}</p>
+                    </a>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </main>
+    {% endblock %}
+</body>
+</html>

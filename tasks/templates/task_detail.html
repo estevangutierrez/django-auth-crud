@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <main class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <h1 class="text-center display-3 py-5">{{task.title}}</h1>
+                <p>{{task.date_completed|date:'M j Y'}}</p>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{update_form}}
+                    <button class="btn btn-primary mt-2">Update</button>
+                </form>
+                {{error}}
+                <div class="d-flex gap-2 mt-3">
+                    <form action="{% url 'complete_task' task.id %}" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-success">Complete</button>
+                    </form>
+                    <form action="{% url 'delete_task' task.id %}" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    {% endblock %}
+</body>
+</html>

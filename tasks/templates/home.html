@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <main class="container py-5">
+        <section class="card card-body">
+            <h1 class="display-1 text-center">My Tasks App</h1>
+            <p>
+                Welcome to My Tasks App: your tool to organize and conquer your daily tasks. Simplify your life, maximize your productivity, and make every day count. Sign up now and turn your tasks into child's play!
+            </p>
+            <div class="text-center">
+                <a href="/signup" class="btn btn-primary">Sign Up</a>
+                <a href="/login" class="btn btn-secondary">Log In<a>
+            </div>
+        </section>
+    </main>
+    {% endblock %}
+</body>
+</html>
